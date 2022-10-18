@@ -1,0 +1,93 @@
+ion-menu-button {
+  color: var(--ion-color-primary);
+}
+
+#container {
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-top: -10px;
+  height: calc(100% - 140px);
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  scrollbar-width: 15px;
+
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+  color: #8c8c8c;
+  margin: 0;
+}
+
+#container a {
+  text-decoration: none;
+}
+
+
+//My SCSS
+
+form {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+
+  ion-item {
+    display: inline-block;
+    width: 70%;
+  }
+
+  ion-button {
+    margin-bottom: 30px;
+    margin-left: 5px;
+  }
+}
+
+
+//sent-received messages rules
+
+.message-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 5px 30px;
+
+  .message {
+    width: fit-content;
+    padding: 20px 35px;
+    border-radius: 25px;
+    max-width: 50%;
+    position: relative;
+
+    .time {
+      font-size: 10px;
+      position: absolute;
+      right: 15px;
+      bottom: 5px;
+    }
+
+  }
+  .received {
+   background-color: #8c8c8c;
+  }
+  .sent {
+   background-color: greenyellow;
+  }
+
+
+}
+
+.message-row-sent {
+  justify-content: flex-end;
+}
+

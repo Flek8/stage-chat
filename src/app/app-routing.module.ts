@@ -1,15 +1,21 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { LoginPage } from './features/login/login.page';
+import { AuthGuard } from './shared/services/auth.guard';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'folder/Inbox',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
-    path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
+    path: 'chat/:id',
+    loadChildren: () => import('./features/folder/folder.module').then( m => m.FolderPageModule), canActivate: [AuthGuard]
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./features/login/login.module').then( m => m.LoginPageModule)
   }
 ];
 

@@ -1,9 +1,26 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  MQTT: {
+    username: require('../assets/config/config.dev.json').MQTT.username,
+    password: require('../assets/config/config.dev.json').MQTT.password,
+    server: require('../assets/config/config.dev.json').MQTT.server,
+    port: require('../assets/config/config.dev.json').MQTT.port,
+    protocoll: require('../assets/config/config.dev.json').MQTT.protocoll,
+    endpoint: require('../assets/config/config.dev.json').MQTT.endpoint,
+    subscriptions: {
+      status: require('../assets/config/config.dev.json').MQTT.subscriptions.status,
+      message: require('../assets/config/config.dev.json').MQTT.subscriptions.message
+    }
+  },
+  API: {
+    login: require('../assets/config/config.dev.json').ApiLogin,
+    infoUtente: require('../assets/config/config.dev.json').ApiInfoUtente
+  }
 };
 
 /*

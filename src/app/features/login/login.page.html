@@ -1,0 +1,20 @@
+<ion-header>
+    <ion-title>login</ion-title>
+</ion-header>
+
+<ion-content>
+    <form #f="ngForm" (submit)="auth.login(f.value)">
+
+      <ion-item>
+        <ion-label>Username</ion-label>
+        <ion-input required type="text" [ngModel] name="username" placeholder="Enter username here.."></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Password</ion-label>
+        <ion-input required type="password" [ngModel] name="password" placeholder="Enter password here.."></ion-input>
+      </ion-item>
+
+      <ion-button slot="end" type="submit" class="ion-no-margin">Send</ion-button>
+    </form>
+</ion-content>

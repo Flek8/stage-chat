@@ -1,0 +1,18 @@
+{
+  "Middleware": "api/",
+  "MQTT": {
+    "username": "spatch",
+    "password": "cn0zrT7idUqxSU3",
+    "server": "rabbitmq.demo.intellitronika.com",
+    "port": "443",
+    "protocoll": "wss",
+    "endpoint": "",
+    "subscriptions": {
+      "status": "stagechat/status",
+      "message": "stagechat/message/flavio_rodolfi"
+    }
+  },
+  "GoogleKey": "AIzaSyDYeh0Iu83n_UdBAT4PV3L_3I3nrnWQdhc",
+  "ApiLogin": "http://stagechat.svil.intellitronika.com/api/Auth/Login",
+  "ApiInfoUtente": "http://stagechat.svil.intellitronika.com/api/Auth/InfoUtente"
+}
