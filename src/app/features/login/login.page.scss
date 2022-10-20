@@ -1,0 +1,38 @@
+
+ion-content {
+  position: relative;
+
+  form {
+    width: 20%;
+    height: fit-content;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -80%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid grey;
+    border-radius: 15px;
+    padding: 15px;
+
+    ion-item {
+      width: 100%;
+
+      ion-label {
+        padding: 0 0 20px 0;
+        font-size: 22px;
+      }
+
+    }
+
+    ion-button {
+      margin-top: 25px;
+    }
+  }
+}
+
+// ion-item {
+//   width: 30%;
+// }

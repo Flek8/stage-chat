@@ -9,7 +9,7 @@
     "endpoint": "",
     "subscriptions": {
       "status": "stagechat/status",
-      "message": "stagechat/message/flavio_rodolfi"
+      "message": "stagechat/message/"
     }
   },
   "GoogleKey": "AIzaSyDYeh0Iu83n_UdBAT4PV3L_3I3nrnWQdhc",

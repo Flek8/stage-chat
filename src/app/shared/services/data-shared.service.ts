@@ -5,6 +5,7 @@
 import { Injectable} from '@angular/core';
 import { Subject } from 'rxjs';
 import { IMessage } from 'src/app/features/models/IMessage';
+import { IPage } from 'src/app/features/models/IPage';
 import { IStatus } from 'src/app/features/models/IStatus';
 import { IChat } from '../../features/models/IChat';
 
@@ -12,17 +13,14 @@ import { IChat } from '../../features/models/IChat';
   providedIn: 'root'
 })
 export class DataSharedService {
-  private statusSubject = new Subject<IStatus>();
-  private messageSubject = new Subject<IMessage>();
+
   public chats: IChat[] = [];
+  public pages: IPage[] = [];
 
-  public status$ = this.statusSubject.asObservable();
-  public message$ = this.messageSubject.asObservable();
 
-  refreshData(status: IStatus | null, message: IMessage | null) {
-    if(status != null) {this.statusSubject.next(status);}
+
+  refreshData(message: IMessage | null) {
     if(message != null) {
-      this.messageSubject.next(message);
 
       message.timestamp = new Date(message.timestamp);
       if (this.chats.length === 0) {
@@ -38,6 +36,8 @@ export class DataSharedService {
 
             message.timestamp = new Date(message.timestamp);
             this.chats[i].messages.push(message);
+
+            return;
 
           } else {
             const chatItem: IChat = {

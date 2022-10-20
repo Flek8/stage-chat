@@ -3,19 +3,26 @@
     <ion-menu contentId="main-content">
       <ion-content>
         <ion-list id="inbox-list">
-          <ion-list-header>Online</ion-list-header>
+          <ion-list-header>Utenti Online</ion-list-header>
 
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-            <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected" >
+            <ion-item class="contact-item" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected" >
               <ion-avatar slot="start">
                 <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
               </ion-avatar>
               <ion-label>{{p.title}}</ion-label>
-              <span *ngIf="p.updateInterval < 10">online</span>
-              <span *ngIf="p.updateInterval >= 10">ultimo accesso: {{p.time | date:'shortTime'}}</span>
+              <span class="last-access l-a-online" *ngIf="p.updateInterval < 5">online</span>
+              <span class="last-access l-a-offline"*ngIf="p.updateInterval >= 5">ultimo accesso: {{p.time | date:'HH:mm'}}</span>
             </ion-item>
           </ion-menu-toggle>
         </ion-list>
+        <ion-item class="user-profile">
+          <ion-avatar slot="start">
+            <img alt="Silhouette of a person's head" src="	https://www.unigreet.com/wp-content/uploads/2020/04/Smiley.jpg" />
+          </ion-avatar>
+          <ion-label>{{user}}</ion-label>
+          <span class="log-out" (click)="auth.logout()">Esci</span>
+        </ion-item>
       </ion-content>
     </ion-menu>
     <ion-router-outlet id="main-content"></ion-router-outlet>

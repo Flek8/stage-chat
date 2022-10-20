@@ -1,9 +1,14 @@
-<ion-header [translucent]="true">
+angular |dae<ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>{{ contact }}</ion-title>
+    <ion-item *ngIf="contact">
+      <ion-avatar slot="start">
+        <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+      </ion-avatar>
+      <ion-label>{{contact}}</ion-label>
+    </ion-item>
   </ion-toolbar>
 </ion-header>
 
@@ -14,13 +19,13 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="container" #scrollMe [scrollTop]="scrollMe.scrollHeight">
+  <div id="container" #scrollMe>
     <div class="message-row" [ngClass]="{'message-row-sent': message.sender === user}" *ngFor="let message of messages">
       <span class="message" [ngClass]="{'received': message.receiver === user,
         'sent': message.sender === user}"
       >
         {{message.text}}
-        <span class="time">{{message.timestamp | date:'shortTime'}}</span>
+        <span class="time">{{message.timestamp | date:'HH:mm'}}</span>
       </span>
 
     </div>
@@ -28,7 +33,7 @@
 
   <form #f="ngForm" (submit)="send(f)" *ngIf="contact">
       <ion-item>
-        <ion-input required placeholder="Type your message here.." type="text" [ngModel] name="textToSend"></ion-input>
+        <ion-input required placeholder="Messaggio.." type="text" [ngModel] name="textToSend"></ion-input>
       </ion-item>
     <ion-button slot="end" type="submit" class="ion-no-margin"><ion-icon name="paper-plane"></ion-icon></ion-button>
   </form>

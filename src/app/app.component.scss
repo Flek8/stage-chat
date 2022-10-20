@@ -1,5 +1,6 @@
 ion-menu ion-content {
   --background: var(--ion-item-background, var(--ion-background-color, #fff));
+  position: relative;
 }
 
 ion-menu.md ion-content {
@@ -50,7 +51,7 @@ ion-menu.md ion-item {
 }
 
 ion-menu.md ion-item.selected {
-  --background: rgba(var(--ion-color-primary-rgb), 0.14);
+  --background: #e5e6e9;
 }
 
 ion-menu.md ion-item.selected ion-icon {
@@ -114,7 +115,44 @@ ion-note {
   color: var(--ion-color-medium-shade);
 }
 
+
+// MY RULES
+
 ion-item.selected {
-  --color: var(--ion-color-primary);
+  color: black;
+}
+
+.contact-item {
+  position: relative;
+}
+
+.last-access {
+  font-size: 15px;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+
+  &.l-a-online {
+    color: rgb(14, 231, 43);
+  }
+
+  &.l-a-offline {
+    color: black;
+  }
+}
+
+.user-profile {
+  position: absolute;
+  bottom: 5px;
+
+  .log-out {
+    margin-left: 145px;
+    font-size: 14px;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+  }
 }
 
