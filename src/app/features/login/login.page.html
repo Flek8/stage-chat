@@ -2,19 +2,21 @@
     <ion-title>login</ion-title>
 </ion-header> -->
 
-<ion-content>
-    <form #f="ngForm" (submit)="auth.login(f.value)">
+<ion-content *ngIf="auth.user === ''">
+  <div class="my-container">
+    <form #f="ngForm" (submit)="auth.login(f)">
 
       <ion-item>
         <ion-label position="stacked">Username</ion-label>
-        <ion-input required type="text" [ngModel] name="username" placeholder="Inserisci qui il tuo username.."></ion-input>
+        <ion-input required type="text" [ngModel] name="username" placeholder="Inserisci qui il tuo username..."></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label position="stacked">Password</ion-label>
-        <ion-input required type="password" [ngModel] name="password" placeholder="Inserisci qui la tua password.."></ion-input>
+        <ion-input required type="password" [ngModel] name="password" placeholder="Inserisci qui la tua password..."></ion-input>
       </ion-item>
 
-      <ion-button slot="end" type="submit" class="ion-no-margin">Accedi</ion-button>
+      <ion-button [disabled]="f.invalid" slot="end" type="submit" class="ion-no-margin">Accedi</ion-button>
     </form>
+  </div>
 </ion-content>

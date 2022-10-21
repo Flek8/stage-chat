@@ -3,10 +3,8 @@
 /* eslint-disable no-trailing-spaces */
 /* eslint-disable @typescript-eslint/member-ordering */
 import { Injectable} from '@angular/core';
-import { Subject } from 'rxjs';
 import { IMessage } from 'src/app/features/models/IMessage';
 import { IPage } from 'src/app/features/models/IPage';
-import { IStatus } from 'src/app/features/models/IStatus';
 import { IChat } from '../../features/models/IChat';
 
 @Injectable({
@@ -16,6 +14,8 @@ export class DataSharedService {
 
   public chats: IChat[] = [];
   public pages: IPage[] = [];
+
+
 
 
 

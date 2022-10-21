@@ -1,4 +1,4 @@
-angular |dae<ion-header [translucent]="true">
+<ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
@@ -33,8 +33,8 @@ angular |dae<ion-header [translucent]="true">
 
   <form #f="ngForm" (submit)="send(f)" *ngIf="contact">
       <ion-item>
-        <ion-input required placeholder="Messaggio.." type="text" [ngModel] name="textToSend"></ion-input>
+        <ion-input required [placeholder]="page.updateInterval === 6? 'Utente offline, impossibile inviare messaggi.' : 'Messaggio...'" type="text" [disabled]="page.updateInterval === 6" [ngModel] name="textToSend"></ion-input>
       </ion-item>
-    <ion-button slot="end" type="submit" class="ion-no-margin"><ion-icon name="paper-plane"></ion-icon></ion-button>
+    <ion-button slot="end" type="submit" [disabled]="page.updateInterval === 6" class="ion-no-margin"><ion-icon name="paper-plane"></ion-icon></ion-button>
   </form>
 </ion-content>
