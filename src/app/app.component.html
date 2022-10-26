@@ -1,6 +1,6 @@
 <ion-app>
-  <ion-split-pane contentId="main-content" [when]="auth.user !== ''">  <!--[when]="auth.data.username" -->
-    <ion-menu contentId="main-content">
+  <ion-split-pane contentId="main-content" [disabled]="auth.user.username === ''">  <!--[when]="auth.data.username" -->
+    <ion-menu contentId="main-content" type="overlay">
       <ion-content>
         <ion-list id="inbox-list">
           <ion-list-header>Utenti Online</ion-list-header>
@@ -11,6 +11,7 @@
                 <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
               </ion-avatar>
               <ion-label>{{p.title}}</ion-label>
+              <span class="notifications" *ngIf="p.unreadMessages !== 0">{{p.unreadMessages}}</span>
               <span class="last-access l-a-online" *ngIf="p.updateInterval < 5">online</span>
               <span class="last-access l-a-offline"*ngIf="p.updateInterval >= 5">ultimo accesso: {{p.time | date:'HH:mm'}}</span>
             </ion-item>
@@ -20,7 +21,10 @@
           <ion-avatar slot="start">
             <img alt="Silhouette of a person's head" src="	https://www.unigreet.com/wp-content/uploads/2020/04/Smiley.jpg" />
           </ion-avatar>
-          <ion-label>{{auth.userFullName}}</ion-label>
+          <ion-label>
+            <div>{{auth.user.firstName}} {{auth.user.lastName}}</div>
+            <a class="user-mail" href="mailto:{{auth.user.email}}">{{auth.user.email}}</a>
+          </ion-label>
           <span class="log-out" (click)="auth.logout()">Esci</span>
         </ion-item>
       </ion-content>

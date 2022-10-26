@@ -2,7 +2,7 @@
     <ion-title>login</ion-title>
 </ion-header> -->
 
-<ion-content *ngIf="auth.user === ''">
+<ion-content *ngIf="auth.user.username === ''">
   <div class="my-container">
     <form #f="ngForm" (submit)="auth.login(f)">
 
@@ -13,7 +13,12 @@
 
       <ion-item>
         <ion-label position="stacked">Password</ion-label>
-        <ion-input required type="password" [ngModel] name="password" placeholder="Inserisci qui la tua password..."></ion-input>
+        <div id="password">
+          <ion-input required [type]="showPassword === true? 'text': 'password'"[ngModel] name="password" placeholder="Inserisci qui la tua password..."></ion-input>
+          <ion-icon (click)="handlePassword()" name="eye" *ngIf="showPassword === false"></ion-icon>
+          <ion-icon (click)="handlePassword()" name="eye-off" *ngIf="showPassword === true"></ion-icon>
+        </div>
+
       </ion-item>
 
       <ion-button [disabled]="f.invalid" slot="end" type="submit" class="ion-no-margin">Accedi</ion-button>

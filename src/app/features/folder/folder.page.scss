@@ -41,13 +41,17 @@ form {
   bottom: 0;
   width: 100%;
   background-color: white;
+  padding-left: 5%;
 
   ion-item {
     display: inline-block;
-    width: 70%;
+    width: 85%;
+    --highlight-background: var(--ion-color-ligth);
+
   }
 
   ion-button {
+    width: 5%;
     margin-bottom: 30px;
     margin-left: 5px;
   }
@@ -64,13 +68,12 @@ form {
 
   .message {
     width: fit-content;
-    padding: 20px 35px;
-    border-radius: 25px;
+    padding: 15px 20px;
     max-width: 50%;
     position: relative;
 
     .time {
-      font-size: 10px;
+      font-size: 9px;
       position: absolute;
       right: 15px;
       bottom: 5px;
@@ -80,10 +83,12 @@ form {
   .received {
    background-color: #faf1ca;
    color: black;
+   border-radius: 15px 15px 15px 0;
   }
   .sent {
    background-color: rgb(184, 245, 148);
    color: black;
+   border-radius: 15px 15px 0 15px;
   }
 
 

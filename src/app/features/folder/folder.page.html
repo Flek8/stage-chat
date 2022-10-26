@@ -13,11 +13,11 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  <!-- <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">{{ contact }}</ion-title>
     </ion-toolbar>
-  </ion-header>
+  </ion-header> -->
 
   <div id="container" #scrollMe>
     <div class="message-row" [ngClass]="{'message-row-sent': message.sender === user}" *ngFor="let message of messages">
@@ -33,7 +33,7 @@
 
   <form #f="ngForm" (submit)="send(f)" *ngIf="contact">
       <ion-item>
-        <ion-input required [placeholder]="page.updateInterval === 6? 'Utente offline, impossibile inviare messaggi.' : 'Messaggio...'" type="text" [disabled]="page.updateInterval === 6" [ngModel] name="textToSend"></ion-input>
+        <ion-textarea class="my-input" required autoGrow="true" rows="1" autofocus="true" [placeholder]="page.updateInterval === 6? 'Utente offline, impossibile inviare messaggi.' : 'Messaggio...'" [disabled]="page.updateInterval === 6" type="text"  [ngModel] name="textToSend"></ion-textarea>
       </ion-item>
     <ion-button slot="end" type="submit" [disabled]="page.updateInterval === 6" class="ion-no-margin"><ion-icon name="paper-plane"></ion-icon></ion-button>
   </form>

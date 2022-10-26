@@ -124,29 +124,58 @@ ion-item.selected {
 
 .contact-item {
   position: relative;
-}
 
-.last-access {
-  font-size: 15px;
-  position: absolute;
-  bottom: 5px;
-  right: 5px;
-
-  &.l-a-online {
-    color: rgb(14, 231, 43);
+  .notifications {
+    background-color: rgb(253, 87, 87);
+    color: white;
+    font-size: 12px;
+    font-family: monospace;
+    padding: 2px 5px;
+    border-radius: 50%;
+    margin-bottom: 3px;
   }
 
-  &.l-a-offline {
-    color: black;
+  .last-access {
+    font-size: 15px;
+    position: absolute;
+    bottom: 0;
+    right:  5px;
+
+    &.l-a-online {
+      color: rgb(14, 231, 43);
+    }
+
+    &.l-a-offline {
+      color: black;
+    }
   }
 }
+
+
 
 .user-profile {
+  width: 100%;
   position: absolute;
   bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .user-mail {
+    font-size: 14px;
+    color: gray;
+  }
+
+  // .user-info {
+  //   display: flex;
+  //   flex-direction: column;
+  //   justify-content: space-around;
+
+
+
+  // }
 
   .log-out {
-    margin-left: 145px;
     font-size: 14px;
 
     &:hover {

@@ -30,12 +30,14 @@ export class DataSharedService {
         };
 
         this.chats.push(chatItem);
+        localStorage.setItem('chats', JSON.stringify(this.chats));
       } else {
         for (let i = 0; i < this.chats.length; i++) {
           if (this.chats[i].users.includes(message.receiver) && this.chats[i].users.includes(message.sender)) {
 
             message.timestamp = new Date(message.timestamp);
             this.chats[i].messages.push(message);
+            localStorage.setItem('chats', JSON.stringify(this.chats));
 
             return;
 
@@ -46,12 +48,14 @@ export class DataSharedService {
             };
 
             this.chats.push(chatItem);
+            localStorage.setItem('chats', JSON.stringify(this.chats));
 
           }
 
         }
 
       }
+
 
 
     }
